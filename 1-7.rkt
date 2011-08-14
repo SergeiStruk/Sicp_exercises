@@ -27,6 +27,5 @@
 
 (define temp 0.000009)
 
-(_sqrt temp)
-(new-sqrt temp)
-
+(_sqrt temp);0.008192755
+(new-sqrt temp);0.003000027
