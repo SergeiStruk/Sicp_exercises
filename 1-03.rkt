@@ -1,16 +1,13 @@
-(define (sum_square x y) (+ (sqr x) (sqr y)))
+#lang racket
+(require rackunit)
 
-(define (sum_square_for_biggest n k m)(
-                    cond((and (>= n k) (>= k m)) (sum_square n k))
-                        ((and (>= k n) (>= n m)) (sum_square n n))
-                        ((and (>= n k) (>= m k)) (sum_square n m))
-                        (else (sum_square k m))
-                    )
- )
+(define (sum-square x y) (+ (sqr x) (sqr y)))
 
-(sum_square_for_biggest 1 2 3)
-(sum_square_for_biggest 1 1 1)
+(define (sum-square-for-biggest a b c)
+  (cond ((and (> a c) (> b c)) (sum-square a b))
+        ((and (> a b) (> c b)) (sum-square a c))
+        (else (sum-square b c))))
 
-
-
-
+(check-equal? (sum-square-for-biggest 1 2 3) 13 )
+(check-equal? (sum-square-for-biggest 1 1 1) 2 )
+(check-equal? (sum-square-for-biggest 3 2 3) 18 )
