@@ -28,8 +28,8 @@
                      x)))
 
 (define (new-good-enough? guess x) 
-  (< (abs (- (improve guess x) guess)) 
-     (abs (* guess 0.001)))) 
+      (< (abs (- (improve guess x) guess)) 
+         (abs (* guess 0.001)))) 
 
 (define (new-sqrt x)
   (new-sqrt-iter 1.0 x))
@@ -37,3 +37,4 @@
 
 (check-equal? (< (abs(- (new-sqrt 0.000009) 0.003)) 0.001) #t )
 (check-equal? (< (abs(- (sqrt 0.000009) 0.003)) 0.001) #f )
+
