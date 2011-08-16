@@ -1,3 +1,5 @@
+#lang racket
+(require rackunit)
 (define (fast-expt b n)
   (fast-expt-iter 1 b n))
 
@@ -11,4 +13,5 @@
       )
   )
 
-(fast-expt 2 5);32
+(check-equal? (fast-expt 2 5) 32 )
+

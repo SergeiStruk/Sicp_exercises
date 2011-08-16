@@ -1,3 +1,6 @@
+#lang racket
+(require rackunit)
+
 (define (double a)
   (+ a a))
 
@@ -13,4 +16,4 @@
          (new-iter p (double a) (halve counter)))
         (else (new-iter (+ p a) a (- counter 1)))))
 
-(new 2 7);14
+(check-equal? (new 2 7) 14)

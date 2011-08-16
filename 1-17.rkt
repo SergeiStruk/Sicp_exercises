@@ -1,3 +1,6 @@
+#lang racket
+(require rackunit)
+
 (define (double a)
   (+ a a))
 
@@ -11,4 +14,4 @@
          (new (double a) (halve b)))
         (else (+ a (new a (- b 1))))))
 
-(new 2 7);14
+(check-equal? (new 2 7) 14)
