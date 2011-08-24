@@ -7,11 +7,11 @@
 (define (halve a)
   (/ a 2))
 
-(define (new a b)
+(define (multiply a b)
   (cond ((= b 1) a)
         ((or (= b 0) (= a 0)) 0)
         ((even? b) 
-         (new (double a) (halve b)))
-        (else (+ a (new a (- b 1))))))
+         (multiply (double a) (halve b)))
+        (else (+ a (multiply a (- b 1))))))
 
-(check-equal? (new 2 7) 14)
+(check-equal? (multiply 2 7) 14)
