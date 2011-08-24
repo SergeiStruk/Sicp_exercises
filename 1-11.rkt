@@ -3,14 +3,12 @@
 
 ;рекурсивный процесс
 (define (foo n)
-   (if(< n 3)
-      n
-      (+ (foo(- n 1))
-         (foo(- n 2))
-         (foo(- n 3))
-         )     
-      )   
-   )
+  (if(< n 3)
+     n
+     (+ (foo(- n 1))
+        (foo(- n 2))
+        (foo(- n 3))
+        )))
 (check-equal? (foo 5) 11 )
 
 
@@ -22,7 +20,6 @@
   (if (= n 0)
       c
       (f1 (+ a b c) a b (- n 1))
-      )
-  )  
+      ))  
 
 (check-equal? (f 5) 11 )
