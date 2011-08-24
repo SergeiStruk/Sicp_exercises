@@ -5,10 +5,14 @@
     (* x x))
 
 (define (cube x) 
-    (* (square x) x)) 
+    (* x x x)) 
 
-(define (improve guess x) 
-    (/ (+ (/ x (square guess)) (* 2 guess)) 3)) 
+(define (improve guess x)
+  (/
+   (+ (/ x (square guess))
+      (* 2 guess))
+   3))
+
 
 (define (good-enough? guess x) 
     (< (abs (- (cube guess) x)) 0.001)) 
@@ -22,5 +26,8 @@
 (define (cube-root x) 
     (cube-root-iter 1.0 x)) 
 
-(check-equal? (< (abs(- (cube-root 27) 3)) 0.001) #t )
+
+
+(check < (- (cube-root 27) 3) 0.001)
+
 
