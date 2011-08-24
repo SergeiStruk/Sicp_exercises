@@ -13,7 +13,6 @@
       (* 2 guess))
    3))
 
-
 (define (good-enough? guess x) 
     (< (abs (- (cube guess) x)) 0.001)) 
 
