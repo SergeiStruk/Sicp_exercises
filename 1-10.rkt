@@ -19,7 +19,7 @@
 (check-equal? (g 3) 8 )
 (check-equal? (g 4) 16)
 
-(define (h n) (A 2 n)); 2^( 2^(2^...(n раз)
+(define (h n) (A 2 n)); 2^(2^(2^...(n раз)
 
 (check-equal? (h 2) 4 )
 (check-equal? (h 3) 16 )
