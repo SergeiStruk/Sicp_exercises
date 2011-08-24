@@ -21,20 +21,20 @@
 
 ;Improve sqrt
 
-(define (new-sqrt-iter guess x)
-  (if (new-good-enough? guess x)
+(define (new-sqrt-iter guess pre-guess x)
+  (if (new-good-enough? guess pre-guess)
       guess
       (new-sqrt-iter (improve guess x)
-                     x)))
+                 guess x)))
 
-(define (new-good-enough? guess x) 
-      (< (abs (- (improve guess x) guess)) 
-         (abs (* guess 0.001)))) 
+(define (new-good-enough? guess pre-guess)
+  (< (abs (- guess pre-guess)) 0.001))
 
 (define (new-sqrt x)
-  (new-sqrt-iter 1.0 x))
+  (new-sqrt-iter 1.0 0 x))
 
 
-(check-equal? (< (abs(- (new-sqrt 0.000009) 0.003)) 0.001) #t )
-(check-equal? (< (abs(- (sqrt 0.000009) 0.003)) 0.001) #f )
+(check < (-(new-sqrt 0.000009) 0.003) 0.001)
+(check > (-(sqrt 0.000009) 0.003) 0.001)
+
 
