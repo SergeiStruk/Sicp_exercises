@@ -2,7 +2,7 @@
 (require rackunit)
 
 (define (binomial-coefficient row col)
-  (if (or (<= row 2) (= col 1) (= row col)) 
+  (if (or (= col 1) (= row col))
     1
     (+ (binomial-coefficient (- row 1) (- col 1))
        (binomial-coefficient (- row 1) col))))
